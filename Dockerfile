@@ -14,6 +14,8 @@ RUN apt-get install iputils-ping -y
 RUN apt-get install arping -y
 RUN apt-get install tar -y
 RUN apt-get install gawk libreadline7 libreadline-dev pkg-config -y
+RUN apt-get install net-tools -y 
+RUN apt-get install curl -y
 
 RUN mkdir /c-ares
 RUN mkdir /quagga
@@ -32,3 +34,4 @@ RUN make
 RUN make install
 
 RUN cp /usr/local/lib/libzebra.so.1 /lib
+RUN sysctl net.ipv4.ip_forward
